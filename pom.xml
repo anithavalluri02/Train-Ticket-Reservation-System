@@ -18,7 +18,9 @@
                 </excludes>
             </resource>
         </resources>
+
         <plugins>
+            <!-- Compiler plugin -->
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
@@ -27,6 +29,8 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
+
+            <!-- WAR plugin -->
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.3</version>
@@ -34,6 +38,8 @@
                     <warSourceDirectory>WebContent</warSourceDirectory>
                 </configuration>
             </plugin>
+
+            <!-- Dependency plugin (optional, for webapp-runner) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -66,13 +72,11 @@
             <artifactId>postgresql</artifactId>
             <version>42.3.7</version>
         </dependency>
-
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.28</version>
         </dependency>
-
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -81,20 +85,17 @@
         </dependency>
     </dependencies>
 
-    <!-- Distribution Management Section -->
+    <!-- Distribution Management (optional, only needed if you use mvn deploy) -->
     <distributionManagement>
-        <!-- Release repository -->
         <repository>
-            <id>releases</id>
+            <id>maven-releases</id>
             <name>Releases Repository</name>
-            <url>http://your-nexus-server/repository/maven-releases/</url>
+            <url>http://3.110.67.69:2001/repository/maven-releases/</url>
         </repository>
-
-        <!-- Snapshot repository -->
         <snapshotRepository>
-            <id>snapshots</id>
+            <id>maven-snapshots</id>
             <name>Snapshots Repository</name>
-            <url>http://your-nexus-server/repository/maven-snapshots/</url>
+            <url>http://3.110.67.69:2001/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
